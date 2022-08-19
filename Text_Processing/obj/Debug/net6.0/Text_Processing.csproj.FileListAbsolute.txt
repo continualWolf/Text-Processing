@@ -1,0 +1,16 @@
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\bin\Debug\net6.0\Text_Processing.exe
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\bin\Debug\net6.0\Text_Processing.deps.json
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\bin\Debug\net6.0\Text_Processing.runtimeconfig.json
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\bin\Debug\net6.0\Text_Processing.dll
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\bin\Debug\net6.0\Text_Processing.pdb
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.csproj.AssemblyReference.cache
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.AssemblyInfoInputs.cache
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.AssemblyInfo.cs
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.csproj.CoreCompileInputs.cache
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.dll
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\refint\Text_Processing.dll
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.pdb
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.genruntimeconfig.cache
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\obj\Debug\net6.0\ref\Text_Processing.dll
+C:\Users\bmwat\source\repos\Text_Processing\Text_Processing\bin\Debug\net6.0\stop_words.txt
