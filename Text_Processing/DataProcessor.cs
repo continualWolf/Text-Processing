@@ -42,7 +42,7 @@ namespace Text_Processing
             data.Text = data.Text.TrimStart();
             data.Text = data.Text.Replace("  ", " ");
 
-            Console.WriteLine(data.Text);
+            DataList.Add(data);
         }
     }
 }
