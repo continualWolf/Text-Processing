@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\bmwat\\source\\repos\\Text_Processing\\Text_Processing\\Text_Processing.csproj": {}
+    "C:\\Users\\bmwat\\Documents\\GitHub\\Text-Processing\\Text_Processing\\Text_Processing.csproj": {}
   },
   "projects": {
-    "C:\\Users\\bmwat\\source\\repos\\Text_Processing\\Text_Processing\\Text_Processing.csproj": {
+    "C:\\Users\\bmwat\\Documents\\GitHub\\Text-Processing\\Text_Processing\\Text_Processing.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\bmwat\\source\\repos\\Text_Processing\\Text_Processing\\Text_Processing.csproj",
+        "projectUniqueName": "C:\\Users\\bmwat\\Documents\\GitHub\\Text-Processing\\Text_Processing\\Text_Processing.csproj",
         "projectName": "Text_Processing",
-        "projectPath": "C:\\Users\\bmwat\\source\\repos\\Text_Processing\\Text_Processing\\Text_Processing.csproj",
+        "projectPath": "C:\\Users\\bmwat\\Documents\\GitHub\\Text-Processing\\Text_Processing\\Text_Processing.csproj",
         "packagesPath": "C:\\Users\\bmwat\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\bmwat\\source\\repos\\Text_Processing\\Text_Processing\\obj\\",
+        "outputPath": "C:\\Users\\bmwat\\Documents\\GitHub\\Text-Processing\\Text_Processing\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -11,9 +11,13 @@ namespace Text_Processing
     {
         public List<DataInput> DataList { get; set; }
 
+        public List<WordValues> WordValues { get; set; }
+
+        //Initialise class / Create new instance of lists
         public DataProcessor()
         {
             DataList = new List<DataInput>();
+            WordValues = new List<WordValues>();
         }
 
         public void ProcessData(DataInput data)
@@ -43,6 +47,35 @@ namespace Text_Processing
             data.Text = data.Text.Replace("  ", " ");
 
             DataList.Add(data);
+
+            string[] words = data.Text.Split(' ');
+            foreach (string word in words)
+            {
+                var temp = WordValues.FirstOrDefault(i => i.Word == word);
+                if (temp != null)
+                {
+                    var tempVal = temp.Values.FirstOrDefault(i => i.Value == data.Value);
+                    if (tempVal != null)
+                    {
+                        tempVal.IncreaseCount(1);
+                    }
+                    else
+                    {
+                        ValuesCount newValue = new ValuesCount(data.Value, 1);
+                        temp.Values.Add(newValue);
+                    }
+                            
+                }
+                else
+                {
+                    WordValues newWord = new WordValues(word);
+                    ValuesCount newValue = new ValuesCount(data.Value, 1);
+                    List <ValuesCount> values = new List<ValuesCount> { newValue };
+                    newWord.Initialise(values);
+
+                    WordValues.Add(newWord);
+                }
+            }
         }
     }
 }
