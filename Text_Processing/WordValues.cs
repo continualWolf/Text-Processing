@@ -22,5 +22,10 @@ namespace Text_Processing
             if(values != null)
                 Values = values;
         }
+
+        public double WordValueTotal()
+        {
+            return Values.Sum(i => i.Count);
+        }
     }
 }

@@ -10,9 +10,9 @@ namespace Text_Processing
     {
         public int Value { get;set; }
 
-        public int Count { get; set; }
+        public double Count { get; set; }
 
-        public ValuesCount(int value, int count)
+        public ValuesCount(int value, double count)
         {
             Value = value;
             Count = count;
