@@ -4,43 +4,19 @@ using Text_Processing;
 //test data
 //-------------------------------
 DataProcessor processor = new DataProcessor();
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
-processor.ProcessData(new DataInput("good.", 1));
 
-
-processor.ProcessData(new DataInput("good.", 0));
-processor.ProcessData(new DataInput("good.", 0));
-processor.ProcessData(new DataInput("good.", 0));
-processor.ProcessData(new DataInput("good.", 0));
-processor.ProcessData(new DataInput("good.", 0));
-processor.ProcessData(new DataInput("good.", 0));
-
-
-processor.ProcessData(new DataInput("bad.", 1));
-processor.ProcessData(new DataInput("bad.", 1));
-
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
-processor.ProcessData(new DataInput("bad.", 0));
+var testDataFP = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\imdb_labelled.txt";
+List<string> testData = File.ReadAllLines(testDataFP).ToList();
+for (int i = 0; i < testData.Count; i++)
+{
+    var text = testData[i];
+    int value = Int32.Parse(testData[i].Substring(testData[i].Length - 1));
+    text = text.Replace(text.Substring(text.Length - 1), "");
+    processor.ProcessData(new DataInput(text, value));
+}
 
 //take input for text you want to predict
 string input = "";
-int wantedProb = 1;
 Console.Write("Please input text : ");
 input = Console.ReadLine().ToLower();
 
@@ -48,7 +24,7 @@ input = Console.ReadLine().ToLower();
 Regex reg = new Regex("[*'\",_&#^@$-.0-9]");
 input = reg.Replace(input, string.Empty);
 
-var filePath = "C:/Users/bmwat/source/repos/Text_Processing/Text_Processing/stop_words.txt";
+var filePath = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\stop_words.txt";
 
 //split text input into words
 string[] tempData = input.Split(' ');
@@ -67,31 +43,36 @@ for (int i = 0; i < tempData.Length; i++)
 }
 
 // put input text back together and tidy up extra spaces
-input = string.Join(" ", tempData);
-input = input.TrimEnd();
-input = input.TrimStart();
-input = input.Replace("  ", " ");
+input = Functions.JoinWords(tempData);
 
 string[] inputWordsArr = input.Split(' ');
-double totalProb = 0;
-foreach (var word in inputWordsArr)
+//currently only checking words
+// i need to adjust the code and include the phrases in the probability!!!!
+foreach (var item in processor.ValueTypes)
 {
-    var temp = processor.WordValues.FirstOrDefault(i => i.Word == word);
-    double placeholder;
-    
-    if(temp != null)
+    double totalProb = 0;
+    foreach (var word in inputWordsArr)
     {
-            if(totalProb == 0)
+        var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == word);
+
+        if (wordInList != null)
+        {
+            var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
+            if (values != null)
             {
-                placeholder = temp.WordValueTotal();
-                totalProb = temp.Values.FirstOrDefault(i => i.Value == wantedProb).Count / temp.WordValueTotal();
-            }else
-            {
-                totalProb = totalProb * (temp.Values.FirstOrDefault(i => i.Value == wantedProb).Count / temp.WordValueTotal());
+                if (totalProb == 0)
+                {
+                    totalProb = values.Count / wordInList.WordValueTotal();
+                }
+                else
+                {
+                    totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
+                }
             }
+
+        }
     }
-    
+    Console.WriteLine($"Probability of '{input}' being {item}  is : {totalProb}");
 }
-Console.WriteLine($"Probability of '{input}' being {wantedProb}  is : {totalProb}");
-Console.ReadLine();
+
 

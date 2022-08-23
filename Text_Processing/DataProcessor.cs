@@ -13,11 +13,14 @@ namespace Text_Processing
 
         public List<WordValues> WordValues { get; set; }
 
+        public List<int> ValueTypes { get; set; }
+
         //Initialise class / Create new instance of lists
         public DataProcessor()
         {
             DataList = new List<DataInput>();
             WordValues = new List<WordValues>();
+            ValueTypes = new List<int>();
         }
 
         public void ProcessData(DataInput data)
@@ -26,35 +29,85 @@ namespace Text_Processing
                 return;
 
             DataList.Add(data);
-
+            if (!ValueTypes.Contains(data.Value))
+            {
+                ValueTypes.Add(data.Value);
+            }
             //break text input into words
             string[] words = data.Text.Split(' ');
 
+            //process the words
             foreach (string word in words)
             {
                 // if word already exists in table
-                var temp = WordValues.FirstOrDefault(i => i.Word == word);
-                if (temp != null)
+                var existingWord = WordValues.FirstOrDefault(i => i.Word == word);
+                if (existingWord != null)
                 {
-                    var tempVal = temp.Values.FirstOrDefault(i => i.Value == data.Value);
-                    if (tempVal != null)
+                    var existingWordValue = existingWord.Values.FirstOrDefault(i => i.Value == data.Value);
+                    if (existingWordValue != null)
                     {
-                        tempVal.IncreaseCount(1);
+                        existingWordValue.IncreaseCount(1);
                     }
                     else
                     {
                         ValuesCount newValue = new ValuesCount(data.Value, 1);
-                        temp.Values.Add(newValue);
+                        existingWord.Values.Add(newValue);
                     }
                             
                 }
                 else
                 {
+                    //if list of words does not contain the current word
+                    //create a new word item
                     WordValues newWord = new WordValues(word);
+
+                    //create new value to assign to the word, the value will be the test data inputted value
                     ValuesCount newValue = new ValuesCount(data.Value, 1);
+
+                    //create a value list then initialise the word with said value
                     List <ValuesCount> values = new List<ValuesCount> { newValue };
                     newWord.Initialise(values);
 
+                    //add the new word to the list of words that have assigned values
+                    WordValues.Add(newWord);
+                }
+            }
+
+            //process phrases
+            for (int i = 0; i < words.Length - 1; i++)
+            {
+                var pharse = $"{words[i]} {words[i + 1]}";
+
+                // if word already exists in table
+                var existingWord = WordValues.FirstOrDefault(i => i.Word == pharse);
+                if (existingWord != null)
+                {
+                    var existingWordValue = existingWord.Values.FirstOrDefault(i => i.Value == data.Value);
+                    if (existingWordValue != null)
+                    {
+                        existingWordValue.IncreaseCount(1);
+                    }
+                    else
+                    {
+                        ValuesCount newValue = new ValuesCount(data.Value, 1);
+                        existingWord.Values.Add(newValue);
+                    }
+
+                }
+                else
+                {
+                    //if list of words does not contain the current word
+                    //create a new word item
+                    WordValues newWord = new WordValues(pharse);
+
+                    //create new value to assign to the word, the value will be the test data inputted value
+                    ValuesCount newValue = new ValuesCount(data.Value, 1);
+
+                    //create a value list then initialise the word with said value
+                    List<ValuesCount> values = new List<ValuesCount> { newValue };
+                    newWord.Initialise(values);
+
+                    //add the new word to the list of words that have assigned values
                     WordValues.Add(newWord);
                 }
             }

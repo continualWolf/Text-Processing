@@ -20,7 +20,8 @@ namespace Text_Processing
             Regex reg = new Regex("[*'\",_&#^@$-.0-9]");
             input = reg.Replace(input, string.Empty);
 
-            var filePath = "C:/Users/bmwat/source/repos/Text_Processing/Text_Processing/stop_words.txt";
+            //var filePath = "C:/Users/bmwat/source/repos/Text_Processing/Text_Processing/stop_words.txt";
+            var filePath = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\stop_words.txt";
 
             string[] tempData = input.Split(' ');
             List<string> file = File.ReadAllLines(filePath).ToList();
