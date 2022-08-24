@@ -18,5 +18,20 @@ namespace Text_Processing
 
             return cleanedUpText;
         }
+
+        public static string[] RemoveStopWords(string text, string filePath)
+        {
+            string[] words = text.Split(' ');
+            List<string> file = File.ReadAllLines(filePath).ToList();
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (file.Contains(words[i]))
+                {
+                    words[i] = "";
+                }
+            }
+
+            return (words);
+        }
     }
 }

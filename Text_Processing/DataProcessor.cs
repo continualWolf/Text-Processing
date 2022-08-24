@@ -9,8 +9,6 @@ namespace Text_Processing
 {
     public class DataProcessor
     {
-        public List<DataInput> DataList { get; set; }
-
         public List<WordValues> WordValues { get; set; }
 
         public List<int> ValueTypes { get; set; }
@@ -18,7 +16,6 @@ namespace Text_Processing
         //Initialise class / Create new instance of lists
         public DataProcessor()
         {
-            DataList = new List<DataInput>();
             WordValues = new List<WordValues>();
             ValueTypes = new List<int>();
         }
@@ -28,7 +25,6 @@ namespace Text_Processing
             if(data == null || data.Text == "" || data.Text == null)
                 return;
 
-            DataList.Add(data);
             if (!ValueTypes.Contains(data.Value))
             {
                 ValueTypes.Add(data.Value);
