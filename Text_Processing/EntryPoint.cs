@@ -98,6 +98,30 @@ namespace Text_Processing
 
                     }
                 }
+                for (int k = 0; k < inputWordsArr.Count() - 1; k++)
+                {
+                    if(inputWordsArr[k] != "" && inputWordsArr[k + 1] != "")
+                    {
+                        var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == $"{inputWordsArr[k]} {inputWordsArr[k + 1]}");
+
+                        if (wordInList != null)
+                        {
+                            var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
+                            if (values != null)
+                            {
+                                if (totalProb == 0)
+                                {
+                                    totalProb = values.Count / wordInList.WordValueTotal();
+                                }
+                                else
+                                {
+                                    totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
+                                }
+                            }
+
+                        }
+                    }
+                }
                 if(totalProb > probability)
                 {
                     value = item;
