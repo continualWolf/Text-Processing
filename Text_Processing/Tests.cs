@@ -1,17 +1,27 @@
 ﻿using System.Diagnostics;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Text_Processing;
 
 DataProcessor processor = new DataProcessor();
 
 var testDataFP = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\imdb_labelled.txt";
+var testDataFP2 = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\yelp_labelled.txt";
+var testDataFP3 = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\amazon_cells_labelled.txt";
 List<string> testData = File.ReadAllLines(testDataFP).ToList();
+List<string> testData2 = File.ReadAllLines(testDataFP2).ToList();
+List<string> testData3 = File.ReadAllLines(testDataFP3).ToList();
+testData.AddRange(testData2);
+testData.AddRange(testData3);
 for (int i = 0; i < testData.Count; i++)
 {
-    var text = testData[i];
-    int value = Int32.Parse(testData[i].Substring(testData[i].Length - 1));
-    text = text.Replace(text.Substring(text.Length - 1), "");
-    processor.ProcessData(new DataInput(text, value));
+    if (testData[i] != "")
+    {
+        var text = testData[i];
+        int value = Int32.Parse(testData[i].Substring(testData[i].Length - 1));
+        text = text.Replace(text.Substring(text.Length - 1), "");
+        processor.ProcessData(new DataInput(text, value));
+    }
 }
 
 
