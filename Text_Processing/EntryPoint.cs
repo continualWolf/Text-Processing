@@ -36,15 +36,9 @@ namespace Text_Processing
                     {
                         var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
                         if (values != null)
-                        {
-                            if (totalProb == 0)
-                            {
-                                totalProb = values.Count / wordInList.WordValueTotal();
-                            }
-                            else
-                            {
+                        { 
+                            totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() : 
                                 totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
-                            }
                         }
 
                     }
@@ -86,14 +80,8 @@ namespace Text_Processing
                         var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
                         if (values != null)
                         {
-                            if (totalProb == 0)
-                            {
-                                totalProb = values.Count / wordInList.WordValueTotal();
-                            }
-                            else
-                            {
+                            totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() : 
                                 totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
-                            }
                         }
 
                     }
@@ -109,14 +97,8 @@ namespace Text_Processing
                             var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
                             if (values != null)
                             {
-                                if (totalProb == 0)
-                                {
-                                    totalProb = values.Count / wordInList.WordValueTotal();
-                                }
-                                else
-                                {
+                                totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() : 
                                     totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
-                                }
                             }
 
                         }

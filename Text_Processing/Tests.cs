@@ -27,20 +27,36 @@ for (int i = 0; i < testData.Count; i++)
 
 //   The following tests are in the case of + or - texts 
 
+List<string> successRate = new List<string>();
+
 string test1 = EntryPoint.ReturnMostProbableOutcome("It was a wonderful day", processor) == 1 ? "Success" : "Fail";
 Console.WriteLine($"Test 1 : {test1}");
+successRate.Add(test1);
 
 string test2 = EntryPoint.ReturnMostProbableOutcome("It was a awful day", processor) == 0 ? "Success" : "Fail";
 Console.WriteLine($"Test 2 : {test2}");
+successRate.Add(test2);
 
 string test3 = EntryPoint.ReturnMostProbableOutcome("Today, i hated how the staff treated me! I will never go back.", processor) == 0 ? "Success" : "Fail";
 Console.WriteLine($"Test 3 : {test3}");
+successRate.Add(test3);
 
 string test4 = EntryPoint.ReturnMostProbableOutcome("We all had the best day out ever!! It was perfect.", processor) == 1 ? "Success" : "Fail";
 Console.WriteLine($"Test 4 : {test4}");
+successRate.Add(test4);
 
 string test5 = EntryPoint.ReturnMostProbableOutcome("Such a bad expereince, i do not recommend !", processor) == 0 ? "Success" : "Fail";
 Console.WriteLine($"Test 5 : {test5}");
+successRate.Add(test5);
 
 string test6 = EntryPoint.ReturnMostProbableOutcome("I loved every second of the film, if you have not seen it i recommend buying tickets Now!", processor) == 1 ? "Success" : "Fail";
 Console.WriteLine($"Test 6 : {test6}");
+successRate.Add(test6);
+
+string test7 = EntryPoint.ReturnMostProbableOutcome("I did somewhat enjoy the film, but overall the film was rubbish.", processor) == 0 ? "Success" : "Fail";
+Console.WriteLine($"Test 7 : {test7}");
+successRate.Add(test7);
+
+string test8 = EntryPoint.ReturnMostProbableOutcome("It was good but so bad.", processor) == 0 ? "Success" : "Fail";
+Console.WriteLine($"Test 8 : {test8}");
+successRate.Add(test8);
