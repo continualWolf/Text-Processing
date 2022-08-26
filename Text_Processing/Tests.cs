@@ -3,8 +3,12 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Text_Processing;
 
+var timer = new Stopwatch();
+timer.Start();
+
 DataProcessor processor = new DataProcessor();
 
+//THIS IS NOT GOOD!!
 var testDataFP = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\imdb_labelled.txt";
 var testDataFP2 = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\yelp_labelled.txt";
 var testDataFP3 = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\amazon_cells_labelled.txt";
@@ -60,6 +64,9 @@ successRate.Add(test7);
 string test8 = EntryPoint.ReturnMostProbableOutcome("Why was the film so bad, my god. They had four years to complete it.", processor) == 0 ? "Success" : "Fail";
 Console.WriteLine($"Test 8 : {test8}");
 successRate.Add(test8);
+
+TimeSpan timeTaken = timer.Elapsed;
+Console.WriteLine($"Time taken {timeTaken.ToString(@"m\:ss\.fff")}");
 
 Console.ReadLine();
 

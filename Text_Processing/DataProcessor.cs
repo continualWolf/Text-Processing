@@ -57,11 +57,8 @@ namespace Text_Processing
                     //create a new word item
                     WordValues newWord = new WordValues(word);
 
-                    //create new value to assign to the word, the value will be the test data inputted value
-                    ValuesCount newValue = new ValuesCount(data.Value, 1);
-
                     //create a value list then initialise the word with said value
-                    List <ValuesCount> values = new List<ValuesCount> { newValue };
+                    List <ValuesCount> values = new List<ValuesCount> { new ValuesCount(data.Value, 1) };
                     newWord.Initialise(values);
 
                     //add the new word to the list of words that have assigned values
@@ -85,10 +82,8 @@ namespace Text_Processing
                     }
                     else
                     {
-                        ValuesCount newValue = new ValuesCount(data.Value, 1);
-                        existingWord.Values.Add(newValue);
+                        existingWord.Values.Add(new ValuesCount(data.Value, 1));
                     }
-
                 }
                 else
                 {
@@ -96,11 +91,8 @@ namespace Text_Processing
                     //create a new word item
                     WordValues newWord = new WordValues(pharse);
 
-                    //create new value to assign to the word, the value will be the test data inputted value
-                    ValuesCount newValue = new ValuesCount(data.Value, 1);
-
                     //create a value list then initialise the word with said value
-                    List<ValuesCount> values = new List<ValuesCount> { newValue };
+                    List<ValuesCount> values = new List<ValuesCount> { new ValuesCount(data.Value, 1) };
                     newWord.Initialise(values);
 
                     //add the new word to the list of words that have assigned values
