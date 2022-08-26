@@ -13,13 +13,47 @@ namespace Text_Processing
 
         public List<int> ValueTypes { get; set; }
 
-        //Initialise class / Create new instance of lists
+        /// <summary>
+        /// Initialise class / Create new instance of lists
+        /// </summary>
         public DataProcessor()
         {
             WordValues = new List<WordValues>();
             ValueTypes = new List<int>();
         }
+        
+        /// <summary>
+        /// Processes data set, passes each line as a parameter to the ProcessData function
+        /// </summary>
+        /// <param name="filePaths"></param>
+        public void AddDataSet(params string[] filePaths)
+        {
+            if (filePaths == null)
+                return;
 
+            List<string> lines = new List<string>();
+
+            foreach (string filePath in filePaths)
+            {
+                lines.AddRange(File.ReadAllLines(filePath).ToList());
+            }
+
+            for (int i = 0; i < lines.Count(); i++)
+            {
+                if (lines[i] != "")
+                {
+                    var text = lines[i];
+                    int value = Int32.Parse(lines[i].Substring(lines[i].Length - 1));
+                    text = text.Replace(text.Substring(text.Length - 1), "");
+                    ProcessData(new DataInput(text, value));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Breaks down data/text given into words and adds them to 'WordValues'
+        /// </summary>
+        /// <param name="data"></param>
         public void ProcessData(DataInput data)
         {
             if(data == null || data.Text == "" || data.Text == null)

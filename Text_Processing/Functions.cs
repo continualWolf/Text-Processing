@@ -19,6 +19,12 @@ namespace Text_Processing
             return cleanedUpText;
         }
 
+        /// <summary>
+        /// Removes the stop words in the text file thats passed as a parameter
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="filePath"></param>
+        /// <returns></returns>
         public static string[] RemoveStopWords(string text, string filePath)
         {
             string[] words = text.Split(' ');

@@ -14,6 +14,11 @@ namespace Text_Processing
         //In this example, the value will be 1 or 0 (Positive or Negative)
         public int Value { get; set; }
 
+        /// <summary>
+        /// Removes stop words & special characters then initialises class
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="inputValue"></param>
         public DataInput(string input, int inputValue)
         {
             //Remove numbers and special characters from input text
