@@ -14,4 +14,4 @@ Training Data:
 
 The training data is formated as follows:
                                                   
-                                                  The filmwas awful, i have never read anything worse.  1
+                                                  The book was awful, i have never read anything worse.  1
