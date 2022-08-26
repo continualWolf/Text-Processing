@@ -5,9 +5,9 @@ using Text_Processing;
 
 DataProcessor processor = new DataProcessor();
 
-var testDataFP = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\imdb_labelled.txt";
-var testDataFP2 = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\yelp_labelled.txt";
-var testDataFP3 = "C:\\Users\\Benjamin\\Downloads\\sentiment labelled sentences\\sentiment labelled sentences\\amazon_cells_labelled.txt";
+var testDataFP = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\imdb_labelled.txt";
+var testDataFP2 = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\yelp_labelled.txt";
+var testDataFP3 = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\amazon_cells_labelled.txt";
 List<string> testData = File.ReadAllLines(testDataFP).ToList();
 List<string> testData2 = File.ReadAllLines(testDataFP2).ToList();
 List<string> testData3 = File.ReadAllLines(testDataFP3).ToList();
@@ -57,6 +57,13 @@ string test7 = EntryPoint.ReturnMostProbableOutcome("I did somewhat enjoy the fi
 Console.WriteLine($"Test 7 : {test7}");
 successRate.Add(test7);
 
-string test8 = EntryPoint.ReturnMostProbableOutcome("It was good but so bad.", processor) == 0 ? "Success" : "Fail";
+string test8 = EntryPoint.ReturnMostProbableOutcome("Why was the film so bad, my god. They had four years to complete it.", processor) == 0 ? "Success" : "Fail";
 Console.WriteLine($"Test 8 : {test8}");
 successRate.Add(test8);
+
+Console.ReadLine();
+
+//string input = "";
+//Console.Write("Cameron input your opinion : ");
+//input = Console.ReadLine();
+//EntryPoint.PrintProbabilities(input, processor);

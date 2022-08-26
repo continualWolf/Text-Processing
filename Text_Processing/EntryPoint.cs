@@ -60,7 +60,7 @@ namespace Text_Processing
             // put input text back together and tidy up extra spaces
             input = Functions.JoinWords(words);
 
-            string[] inputWordsArr = input.Split(' ');
+            string[] inputWordsArr = input.ToLower().Split(' ');
 
             //Most likley value outcome based on input text
             int value = 0;
