@@ -14,30 +14,26 @@ namespace Text_Processing
         //In this example, the value will be 1 or 0 (Positive or Negative)
         public int Value { get; set; }
 
+        /// <summary>
+        /// Removes stop words & special characters then initialises class
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="inputValue"></param>
         public DataInput(string input, int inputValue)
         {
             //Remove numbers and special characters from input text
             Regex reg = new Regex("[*'\",_&#^@$-.0-9]");
             input = reg.Replace(input, string.Empty);
+            input = input.ToLower();
 
-            var filePath = "C:/Users/bmwat/source/repos/Text_Processing/Text_Processing/stop_words.txt";
+            //var filePath = "C:/Users/bmwat/source/repos/Text_Processing/Text_Processing/stop_words.txt";
+            var filePath = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\stop_words.txt";
 
-            string[] tempData = input.Split(' ');
-            List<string> file = File.ReadAllLines(filePath).ToList();
-            for (int i = 0; i < tempData.Length; i++)
-            {
-                if (file.Contains(tempData[i]))
-                {
-                    tempData[i] = "";
-                }
-            }
+            string[]words = Functions.RemoveStopWords(input, filePath);
 
-            input = string.Join(" ", tempData);
-            input = input.TrimEnd();
-            input = input.TrimStart();
-            input = input.Replace("  ", " ");
+            input = Functions.JoinWords(words);
 
-            Text = input.ToLower();
+            Text = input;
             Value = inputValue;
         }
     }
