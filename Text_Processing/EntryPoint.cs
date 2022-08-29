@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -73,17 +74,19 @@ namespace Text_Processing
                 double totalProb = 0;
                 foreach (var word in inputWordsArr)
                 {
-                    var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == word);
-
-                    if (wordInList != null)
+                    if(word != "" && word != " ")
                     {
-                        var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
-                        if (values != null)
-                        {
-                            totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() : 
-                                totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
-                        }
+                        var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == word);
 
+                        if (wordInList != null)
+                        {
+                            var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
+                            if (values != null && word != "amazing")
+                            {
+                                totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() :
+                                    totalProb * (values.Count / wordInList.WordValueTotal());
+                            }
+                        }
                     }
                 }
                 for (int k = 0; k < inputWordsArr.Count() - 1; k++)

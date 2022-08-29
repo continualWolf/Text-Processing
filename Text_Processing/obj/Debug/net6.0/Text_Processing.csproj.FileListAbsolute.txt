@@ -46,3 +46,9 @@ C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\obj\Debug\net
 C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.pdb
 C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.genruntimeconfig.cache
 C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\obj\Debug\net6.0\ref\Text_Processing.dll
+C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\bin\Debug\net6.0\Microsoft.Owin.dll
+C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\bin\Debug\net6.0\Owin.dll
+C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\obj\Debug\net6.0\Text_Processing.csproj.CopyComplete
+C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\bin\Debug\net6.0\amazon_cells_labelled.txt
+C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\bin\Debug\net6.0\imdb_labelled.txt
+C:\Users\Benjamin\Documents\GitHub\Text-Processing\Text_Processing\bin\Debug\net6.0\yelp_labelled.txt

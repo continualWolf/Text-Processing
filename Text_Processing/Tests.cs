@@ -23,7 +23,8 @@ Console.WriteLine($"Time taken to process data {timeTaken2.ToString(@"m\:ss\.fff
 //   The following tests are in the case of +/1 or -/0 texts
 var timer = new Stopwatch();
 timer.Start();
-string test1 = EntryPoint.ReturnMostProbableOutcome("It was a wonderful day", processor) == 1 ? "Success" : "Fail";
+//little brother testing code
+string test1 = EntryPoint.ReturnMostProbableOutcome("one piece is a anime about a fun amazing kid who wants to be the king of the sea which is a fun show with many intresting charaters which is amazing", processor) == 1 ? "Success" : "Fail";
 Console.WriteLine($"Test 1 : {test1}");
 
 string test2 = EntryPoint.ReturnMostProbableOutcome("It was a awful day", processor) == 0 ? "Success" : "Fail";
@@ -52,7 +53,12 @@ Console.WriteLine($"Test time taken {timeTaken.ToString(@"m\:ss\.fff")}");
 
 Console.ReadLine();
 
-//string input = "";
-//Console.Write("Cameron input your opinion : ");
-//input = Console.ReadLine();
-//EntryPoint.PrintProbabilities(input, processor);
+
+
+while (true)
+{
+    string input = "";
+    Console.Write("Cameron input your opinion : ");
+    input = Console.ReadLine();
+    EntryPoint.PrintProbabilities(input, processor);
+}
