@@ -16,7 +16,11 @@ namespace Text_Processing
             Regex reg = new Regex("[*'\",_&#^@$-.0-9]");
             input = reg.Replace(input, string.Empty);
 
+            //----------------
+            //-------If you are not me, you will need to change this file path-------
             var filePath = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\stop_words.txt";
+            //----------------
+            //----------------
 
             string[] words = Functions.RemoveStopWords(input, filePath);
 
@@ -33,16 +37,15 @@ namespace Text_Processing
                 {
                     var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == word);
 
-                    if (wordInList != null)
-                    {
-                        var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
-                        if (values != null)
-                        { 
-                            totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() : 
-                                totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
-                        }
+                    if (wordInList == null) continue;
+                    
+                    var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
 
-                    }
+                    if (values == null) continue;
+                        
+                    totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() : 
+                        totalProb = totalProb * (values.Count / wordInList.WordValueTotal());
+                        
                 }
                 Console.WriteLine($"Probability of '{input}' being {item}  is : {totalProb}");
             }
@@ -54,7 +57,11 @@ namespace Text_Processing
             Regex reg = new Regex("[*'\",_&#^@$-.0-9]");
             input = reg.Replace(input, string.Empty);
 
+            //----------------
+            //-------If you are not me, you will need to change this file path-------
             var filePath = "C:\\Users\\Benjamin\\Documents\\GitHub\\Text-Processing\\Text_Processing\\stop_words.txt";
+            //----------------
+            //----------------
 
             string[] words = Functions.RemoveStopWords(input, filePath);
 
@@ -74,20 +81,18 @@ namespace Text_Processing
                 double totalProb = 0;
                 foreach (var word in inputWordsArr)
                 {
-                    if(word != "" && word != " ")
-                    {
-                        var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == word);
+                    if (word == "" && word == " ") continue;
+                    
+                    var wordInList = processor.WordValues.FirstOrDefault(i => i.Word == word);
 
-                        if (wordInList != null)
-                        {
-                            var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
-                            if (values != null && word != "amazing")
-                            {
-                                totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() :
-                                    totalProb * (values.Count / wordInList.WordValueTotal());
-                            }
-                        }
-                    }
+                    if (wordInList == null) continue;
+                    
+                    var values = wordInList.Values.FirstOrDefault(i => i.Value == item);
+
+                    if (values == null) continue;
+                    
+                    totalProb = totalProb == 0 ? values.Count / wordInList.WordValueTotal() :
+                        totalProb * (values.Count / wordInList.WordValueTotal());
                 }
                 for (int k = 0; k < inputWordsArr.Count() - 1; k++)
                 {

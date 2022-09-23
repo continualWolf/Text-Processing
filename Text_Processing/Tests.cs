@@ -58,7 +58,7 @@ Console.ReadLine();
 while (true)
 {
     string input = "";
-    Console.Write("Cameron input your opinion : ");
+    Console.Write("Input your opinion : ");
     input = Console.ReadLine();
     EntryPoint.PrintProbabilities(input, processor);
 }
